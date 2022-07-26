@@ -8,9 +8,9 @@ class Api::V1::ItemsController < ApplicationController
        }}
     end
     def create
-        item = Item.new amount: 1
+        item = Item.new amount: params[:amount]
         if item.save
-            render json:{resouce: item}
+            render json:{resource: item}
         else
             render json:{errors:item.errors}
         end
